@@ -1,0 +1,39 @@
+import uvicorn
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+data = []
+class User(BaseModel):
+  userID: int
+  name: str
+  email: str
+  password: str
+
+
+@app.get("/users")
+async def get_users():
+  return data
+
+
+@app.get("/users/{user_id}")
+async def get_a_user(user_id: int):
+  return data[user_id - 1]
+
+
+@app.post("/users")
+async def add_user(user: User):
+  data.append(user.dict())
+  return data[-1]
+
+#@app.put("/users")
+#async def put_user(user:User):
+
+
+async def delete_user(user:User):
+    data.remove(user.dict())
+    return  data[-1]
+
+
+uvicorn.run(app)

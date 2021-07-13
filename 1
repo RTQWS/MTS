@@ -1,0 +1,31 @@
+import socket
+class Conection(object):
+    def __init__(self,open,close,printout,sending):
+
+        pass
+    def password(pasw):
+        if len(pasw)>8 and len(pasw)<16:
+            print(True)
+        else:
+            print("Error")
+    def test(self):
+        host = socket.getaddrinfo(socket.gethostname(), None)
+        ipv4_addresses = [i[4][0] for i in host if i[0] == socket.AF_INET]
+        return (True)
+
+    def open_con(self):
+        sock = socket.socket()
+        sock.connect(('localhost', 9090))
+        data = sock.recv(1024)
+
+    def close_con(self):
+        sock = socket.socket()
+        sock.close()
+
+    def printout(self):
+        print("Error message")
+
+    def sending(self):
+        if button.click():
+            sock = socket.socket()
+            sock.connect(('localhost', 9090))
